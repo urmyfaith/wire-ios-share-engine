@@ -79,6 +79,7 @@ public class SharingSession {
         guard !NSManagedObjectContext.needsToPrepareLocalStoreInDirectory(databaseDirectory) else { throw InitializationError.NeedsMigration }
         guard authenticationStatusProvider.state == .Authenticated else { throw InitializationError.LoggedOut }
         managedObjectContext = NSManagedObjectContext.createUserInterfaceContextWithStoreDirectory(databaseDirectory)
+        GlobalSendableObserver.setupGlobalObserver(managedObjectContext)
     }
 
     /// Cancel all pending tasks.

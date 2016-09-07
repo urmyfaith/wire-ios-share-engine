@@ -48,6 +48,4 @@ public protocol SendableObserver {
 }
 
 /// Wrapper around an observer token for SendableObserver
-public struct SendableObserverToken {
-    let token : AnyObject
-}
+public typealias SendableObserverToken = UInt
